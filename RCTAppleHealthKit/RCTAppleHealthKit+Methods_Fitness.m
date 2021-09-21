@@ -40,10 +40,20 @@
             return;
         }
 
+        NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:startDate];
+        if (!startDateString) {
+            startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:date];
+        }
+
+        NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:endDate];
+        if (!endDateString) {
+            endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:date];
+        }
+
          NSDictionary *response = @{
                  @"value" : @(value),
-                 @"startDate" : [RCTAppleHealthKit buildISO8601StringFromDate:startDate],
-                 @"endDate" : [RCTAppleHealthKit buildISO8601StringFromDate:endDate],
+                 @"startDate" : startDateString,
+                 @"endDate" : endDateString,
          };
 
         callback(@[[NSNull null], response]);
