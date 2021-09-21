@@ -52,8 +52,8 @@
 
          NSDictionary *response = @{
                  @"value" : @(value),
-                 @"startDate" : nil,
-                 @"endDate" : nil,
+                 @"startDate" : [NSNull null];,
+                 @"endDate" : [NSNull null];,
          };
 
         callback(@[[NSNull null], response]);
