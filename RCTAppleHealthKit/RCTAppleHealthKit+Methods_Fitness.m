@@ -50,11 +50,11 @@
             endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:date];
         }
 
-         NSDictionary *response = @{
-                 @"value" : @(value),
-                 @"startDate" : [NSNull null];,
-                 @"endDate" : [NSNull null];,
-         };
+        NSDictionary *response = @{
+                @"value" : @(value),
+                @"startDate" : [NSNull null],
+                @"endDate" : [NSNull null],
+        };
 
         callback(@[[NSNull null], response]);
     }];
