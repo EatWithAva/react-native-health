@@ -41,18 +41,16 @@
         }
 
         NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDateReturnNil:startDate];
-        /*
-        if (!startDateString) {
-            startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:date];
+        if (startDateString == nil) {
+            callback(@[RCTJSErrorFromNSError(error)]);
+            return;
         }
-        */
 
         NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDateReturnNil:endDate];
-        /*
-        if (!endDateString) {
-            endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:date];
+        if (endDateString == nil) {
+            callback(@[RCTJSErrorFromNSError(error)]);
+            return;
         }
-        */
 
         NSDictionary *response = @{
                 @"value" : @(value),
