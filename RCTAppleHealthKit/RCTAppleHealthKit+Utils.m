@@ -42,6 +42,10 @@
     }   
 }
 
++ (NSString *)buildISO8601StringFromDateReturnNil:(NSDate *)date
+{
+    return nil;  
+}
 
 + (NSPredicate *)predicateForSamplesToday {
     NSDate *now = [NSDate date];

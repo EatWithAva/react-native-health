@@ -12,6 +12,7 @@
 
 + (NSDate *)parseISO8601DateFromString:(NSString *)date;
 + (NSString *)buildISO8601StringFromDate:(NSDate *)date;
++ (NSString *)buildISO8601StringFromDateReturnNil:(NSDate *)date;
 + (NSPredicate *)predicateForSamplesToday;
 + (NSPredicate *)predicateForSamplesOnDay:(NSDate *)date;
 + (NSPredicate *)predicateForSamplesBetweenDates:(NSDate *)startDate endDate:(NSDate *)endDate;
