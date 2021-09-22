@@ -40,13 +40,13 @@
             return;
         }
 
-        NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDateReturnNil:startDate];
+        NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:startDate];
         if (startDateString == nil) {
             callback(@[RCTJSErrorFromNSError(error)]);
             return;
         }
 
-        NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDateReturnNil:endDate];
+        NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:endDate];
         if (endDateString == nil) {
             callback(@[RCTJSErrorFromNSError(error)]);
             return;
