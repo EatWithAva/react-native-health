@@ -40,7 +40,7 @@
             return;
         }
 
-        NSString *startDateString = nil;
+        NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:startDate];
         if (startDateString == nil) {
             startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:date];
             if (startDateString == nil) {
