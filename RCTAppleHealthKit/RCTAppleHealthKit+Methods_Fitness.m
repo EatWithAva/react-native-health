@@ -42,14 +42,20 @@
 
         NSString *startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:startDate];
         if (startDateString == nil) {
-            callback(@[RCTJSErrorFromNSError(error)]);
-            return;
+            startDateString = [RCTAppleHealthKit buildISO8601StringFromDate:date];
+            if (startDateString == nil) {
+                callback(@[RCTJSErrorFromNSError(error)]);
+                return;
+            }
         }
 
         NSString *endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:endDate];
         if (endDateString == nil) {
-            callback(@[RCTJSErrorFromNSError(error)]);
-            return;
+            endDateString = [RCTAppleHealthKit buildISO8601StringFromDate:date];
+            if (endDateString == nil) {
+                callback(@[RCTJSErrorFromNSError(error)]);
+                return;
+            }
         }
 
         NSDictionary *response = @{
