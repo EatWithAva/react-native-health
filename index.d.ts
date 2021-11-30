@@ -97,6 +97,11 @@ declare module 'react-native-health' {
       callback: (err: string, results: HealthValue) => void,
     ): void
 
+    getBmiSamples(
+      options: HealthInputOptions,
+      callback: (err: string, results: Array<HealthValue>) => void,
+    ): void
+  
     saveBmi(
       options: HealthValueOptions,
       callback: (error: string, result: HealthValue) => void,
@@ -107,9 +112,19 @@ declare module 'react-native-health' {
       callback: (err: string, results: HealthValue) => void,
     ): void
 
+    getBodyFatPercentageSamples(
+      options: HealthInputOptions,
+      callback: (err: string, results: Array<HealthValue>) => void,
+    ): void
+
     getLatestLeanBodyMass(
       options: HealthUnitOptions,
       callback: (err: string, results: HealthValue) => void,
+    ): void
+
+    getLeanBodyMassSamples(
+      options: HealthInputOptions,
+      callback: (err: string, results: Array<HealthValue>) => void,
     ): void
 
     getStepCount(
@@ -287,6 +302,16 @@ declare module 'react-native-health' {
       callback: (error: string, result: HealthValue) => void,
     ): void
 
+    deleteBloodGlucoseSample(
+      id: string,
+      callback: (error: string, result: HealthValue) => void,
+    ): void
+
+    deleteCarbohydratesSample(
+      id: string,
+      callback: (error: string, result: HealthValue) => void,
+    ): void
+
     getSleepSamples(
       options: HealthInputOptions,
       callback: (err: string, results: Array<HealthValue>) => void,
@@ -402,7 +427,15 @@ declare module 'react-native-health' {
     id?: string
     startDate: string
     endDate: string
+    metadata?: RecordMetadata
   }
+
+  export interface RecordMetadata {
+    HKBloodGlucoseMealTime?: BloodGlucoseMealTime
+    HKWasUserEntered?: boolean
+    [key: string]: string | number | boolean
+  }
+
   export interface HealthValue extends BaseValue {
     value: number
   }
@@ -463,6 +496,7 @@ declare module 'react-native-health' {
     value: number
     startDate?: string
     endDate?: string
+    metadata?: RecordMetadata
   }
 
   export interface HealthActivityOptions
@@ -752,6 +786,11 @@ declare module 'react-native-health' {
     InconclusiveOther = 'InconclusiveOther',
     Unrecognized = 'Unrecognized',
   }  
+
+  export enum BloodGlucoseMealTime {
+    Preprandial = 1,
+    Postprandial = 2,
+  }
 
   const appleHealthKit: AppleHealthKit
 
